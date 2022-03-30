@@ -11,6 +11,7 @@ var tonePlaying = false;
 var volume = 0.5;  //must be between 0.0 and 1.0
 var guessCounter = 0;
 
+
 function startGame(){
     //initialize game variables
     progress = 0;
@@ -19,6 +20,7 @@ function startGame(){
     document.getElementById("startBtn").classList.add("hidden");
     document.getElementById("stopBtn").classList.remove("hidden");
   playClueSequence()
+  
 }
 function stopGame(){
    gamePlaying = false;
@@ -28,10 +30,10 @@ function stopGame(){
 }
 // Sound Synthesis Functions
 const freqMap = {
-  1: 261.6,
-  2: 329.6,
-  3: 392,
-  4: 466.2
+  1: 265.0,
+  2: 300.6,
+  3: 342,
+  4: 522.2
 }
 function playTone(btn,len){ 
   o.frequency.value = freqMap[btn]
@@ -90,6 +92,7 @@ function playClueSequence(){
     setTimeout(playSingleClue,delay,pattern[i]) // set a timeout to play that clue
     delay += clueHoldTime 
     delay += cluePauseTime;
+    
   }
 }
 
@@ -128,6 +131,3 @@ function guess(btn){
     loseGame();
   }
 }    
-  
-      
-  
